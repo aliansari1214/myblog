@@ -1,0 +1,186 @@
+{% load static %}
+{% load base_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>myBlog{% block title %}{% endblock %}</title>
+
+  <link href="{% static 'blog/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'blog/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'blog/css/clean-blog.min.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'blog/css/rtl.css' %}" rel="stylesheet"> -->
+  <style>
+    @font-face {
+      font-family: vazir-medium;
+      src: url(../../static/blog/fonts/Vazir-Medium.woff) format("woff"),
+        url(../../static/blog/fonts/Vazir-Medium.woff2) format("woff2"),
+        url(../../static/blog/fonts/Vazir-Medium.eot) format("eot"),
+        url(../../static/blog/fonts/Vazir-Medium.ttf) format("ttf");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+
+
+    body {
+      direction: rtl;
+      text-align: right;
+      font-family: 'vazir-medium' !important;
+    }
+
+
+    .navbar-nav {
+      margin-right: auto;
+    }
+
+    .navbar-nav li a {
+      font-size: 16px !important;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 12px 0 !important;
+      font-size: 12px !important;
+      ;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 800;
+      font-family: 'vazir-medium' !important;
+    }
+
+    #navbarResponsive {
+      font-family: unset !important;
+      font-family: 'vazir-medium' !important;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+
+    .post-preview>a>.post-title {
+      font-size: 28px !important;
+    }
+
+    .post-preview>.post-meta {
+      font-size: 14px !important;
+    }
+
+    .post-preview>.category {
+      font-size: 16px !important;
+    }
+
+    .post-preview>a>.post-subtitle {
+      font-size: 18px;
+      line-height: 26px;
+      margin: 16px 0 8px;
+    }
+
+    header.masthead {
+      background-image: url("../../static/blog/img/home-bg.jpg")
+    }
+
+    .dropdown-toggle::after {
+      margin-right: 5px;
+      vertical-align: -1px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="{% url 'blog:home' %}">{% title %}</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="font-family: 'vazir-medium';">
+      
+        {% category_navbar %}
+    </div>
+
+
+  </nav>
+
+  <!-- Main Content -->
+
+  {% block main %}
+
+  {% endblock %}
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'blog/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'blog/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'blog/js/clean-blog.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<div class="dropdown-menu text-center" >
+    {% for cat in cat.children.active %}
+    <a class="nav-link " href="{% url 'blog:category' cat.slug %}">{{cat.title}}</a>
+    <div class="dropdown-menu">
+
+        {% if cat.children.active %}
+
+        {% include 'blog/partials/category-loop.html' %}
+
+        {% endif %}
+
+    </div>
+    
+    {% endfor %}
+</div>
